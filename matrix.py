@@ -1,10 +1,7 @@
 import numpy, sys, time
 
-if (len(sys.argv) != 2):
-    print("usage: python %s N" % sys.argv[0])
-    quit()
 
-n = int(sys.argv[1])
+n = int(input("N>"))
 a = numpy.zeros((n, n)) # Matrix A
 b = numpy.zeros((n, n)) # Matrix B
 c = numpy.zeros((n, n)) # Matrix C
@@ -21,7 +18,14 @@ begin = time.time()
 ######################################################
 # Write code to calculate C = A * B                  #
 # (without using numpy librarlies e.g., numpy.dot()) #
+
+for i in range(n):
+    for j in range(n):
+        c[i][j] = 0
+        for k in range(n):
+            c[i][j] +=  a[i][k]*b[k][j]
 ######################################################
+
 
 end = time.time()
 print("time: %.6f sec" % (end - begin))
